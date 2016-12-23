@@ -18,6 +18,7 @@ return [
         ':name' => ['index/hello', ['method' => 'post']],
     ],
     'index' => 'index/index_controller/index',
-    'admin/index' => 'admin/login_controller/index',
-    'admin/login' => 'admin/login_controller/login',
+    'login' => 'admin/login_controller/index',
+    'adminlogin' => 'admin/login_controller/login',
+    'main' => 'admin/main_controller/index',
 ];

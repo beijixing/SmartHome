@@ -20,9 +20,7 @@ class LoginController extends Controller
     public function login(Request $request) {
         $data = input('post.');
 
-        dump($data);
-        dump($request->routeInfo());
-        dump($request->param());
+        $this->redirect(url('/main/index'));
         echo "登录成功";
     }
 }
