@@ -21,4 +21,5 @@ return [
     'login' => 'admin/login_controller/index',
     'adminlogin' => 'admin/login_controller/login',
     'main' => 'admin/main_controller/index',
+    'addbook' => 'admin/main_controller/addBook',
 ];

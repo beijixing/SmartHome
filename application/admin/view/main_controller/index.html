@@ -3,8 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <title>主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, max-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- 所有的插件依赖于 jQuery。所以必须在插件文件之前引用 jQuery -->
+    <script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">书籍管理后台</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">首页</a></li>
+                <li><a href="#">添加书籍</a></li>
+                <li><a href="#">删除书籍</a></li>
+                <li><a href="#">查找书籍</a></li>
+            </ul>
+            <p class="navbar-text navbar-right" style="color: #008800">欢迎登录</p>
+        </div>
+    </div>
+</nav>
+
+<nav class="col-sm-2">
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <ul id="myTab" class="nav nav-pills nav-stacked">
+                <li class="active">
+                    <a href="#addbook" data-toggle="tab">
+                        添加书籍
+                    </a>
+                </li>
+                <li><a href="#deletebook" data-toggle="tab">删除书籍</a></li>
+                <li><a href="#findbook" data-toggle="tab">查找书籍</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="myTabContent" class="well col-sm-9 tab-content">
+    <div class="tab-pane fade in active" id="addbook">
+        <form class="form-horizontal" role="form" action="{:url('/addbook')}">
+            <div class="form-group">
+                <lab for="chinesename" class="control-label col-sm-2">中文名称</lab>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="chinesename" name="name" placeholder="请输入书籍名称">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <lab for="publisher" class="col-sm-2 control-label">出版社</lab>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="publisher" name="publisher" placeholder="请输入出版社">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <lab for="description" class="col-sm-2 control-label">描述</lab>
+                <div class="col-sm-8">
+                    <textarea class="form-control" rows="3" id="description" name="description" placeholder="请输入书籍描述"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <lab for="publish_time" class="col-sm-2 control-label">出版时间</lab>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="publish_time" name="publishtime" placeholder="如:2016/12/25">
+                </div>
+            </div>
+
+            <div  class="form-group">
+                <label for="price" class="col-sm-2 control-label">价格</label>
+                <div class="col-sm-8">
+                    <input type="text" id="price" name="price" class="form-control" placeholder="如:99.99">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-9">
+                    <button type="submit" class="btn btn-default">添加</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="tab-pane fade" id="deletebook">
+        <form class="form-horizontal" role="form" action="">
+            <div class="form-group">
+                <lab for="chinesename" class="col-sm-2 control-label">中文名称</lab>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="chinesename" name="chinesename" placeholder="请输入书籍名称">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <lab for="englishname" class="col-sm-2 control-label">英文名称</lab>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="englishname" name="englishname" placeholder="请输入书籍名称">
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="tab-pane fade" id="findbook">
+        <form class="form-horizontal" role="form" action="">
+            <div class="form-group">
+                <lab for="chinesename" class="col-sm-2 control-label">中文名称</lab>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="chinesename" name="chinesename" placeholder="请输入书籍名称">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <lab for="englishname" class="col-sm-2 control-label">英文名称</lab>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="englishname" name="englishname" placeholder="请输入书籍名称">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        addBook = function () {
+            $('#addbook').show();
+            $('#deletebook').hide();
+            $('#findbook').hide();
+        }
+
+        deleteBook = function () {
+            $('#addbook').hide();
+            $('#deletebook').show();
+            $('#findbook').hide();
+        }
+
+        findBook = function () {
+            $('#addbook').hide();
+            $('#deletebook').hide();
+            $('#findbook').show();
+        }
+    });
+</script>
 
 </body>
 </html>

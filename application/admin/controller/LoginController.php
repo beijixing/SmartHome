@@ -19,7 +19,7 @@ class LoginController extends Controller
 
     public function login(Request $request) {
         $data = input('post.');
-
+        //TODO 在此检测登录用户名与密码
         $this->redirect(url('/main/index'));
         echo "登录成功";
     }
